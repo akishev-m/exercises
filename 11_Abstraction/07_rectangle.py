@@ -46,32 +46,39 @@ def get_start_height(rectangle):
 def contains_origin(rectangle):
     up_left_point = get_start_point(rectangle)
     up_right_point = {
-            'x': up_left_point['x'] + get_start_height(rectangle),
+            'x': up_left_point['x'] + get_start_width(rectangle),
             'y': up_left_point['y']
             }
     down_left_point = {
             'x': up_left_point['x'],
-            'y':up_left_point['y'] - get_start_width(rectangle)
+            'y':up_left_point['y'] - get_start_height(rectangle)
             }
     down_right_point = {
             'x': up_right_point['x'],
             'y': down_left_point['y']
             }
-    if (int(get_quadrant(up_left_point))
-        + int(get_quadrant(up_right_point))
-        + int(get_quadrant(down_left_point))
-        + int(get_quadrant(down_left_point))) == 10:
+    if (get_quadrant(up_left_point) == 1
+        and get_quadrant(up_right_point) == 2
+        and get_quadrant(down_left_point) == 3 
+        and get_quadrant(down_right_point) == 4):
         return True
     else:
         return False
 
+def temp(rectangle):
+    up_left_point = get_start_point(rectangle)
+    up_right_point = {
+            'x': up_left_point['x'] + get_start_height(rectangle),
+            'y': up_left_point['y']
+            }
+    return up_right_point
+ 
 
 def main():
-    begin_point = make_decart_point(4, 2)
-    end_point = make_decart_point(0, 0)
-    segment = make_segment(begin_point, end_point)
-    print(segment)
-    print(get_mid_point_of_segment(segment))
+    p = make_decart_point(-4, 3)
+    rectangle1 = make_rectangle(p, 5, 4)
+    print(contains_origin(rectangle1))
+#    print(temp(rectangle1))
 
 
 if __name__ == '__main__':
