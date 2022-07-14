@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Example application</title>
+  </head>
+  <body>
+    <a href="/users">Пользователи</a>
+    <!-- BEGIN (write your solution here) -->
+    <table>
+      <tr>
+        {% for columns in user %}
+        <td>{{ user.get(columns) }}</td>
+        {% endfor %}
+      </tr>
+    </table>
+    <!-- END -->
+  </body>
+</html>

@@ -5,7 +5,7 @@ import math
 
 # BEGIN (write your solution here)
 def make(numer, denom):
-    gcd = int(math.gcd(numer, denom))
+    gcd = math.gcd(int(numer), int(denom))
     rational = {
         'numer': numer / gcd,
         'denom': denom / gcd
@@ -39,11 +39,15 @@ def to_str(rat):
 
 
 def main():
-    begin_point = make_decart_point(4, 2)
-    end_point = make_decart_point(0, 0)
-    segment = make_segment(begin_point, end_point)
-    print(segment)
-    print(get_mid_point_of_segment(segment))
+    rat1 = make(3, 9)
+    print(get_numer(rat1))
+    print(get_denom(rat1))
+    rat2 = make(10, 3)
+    rat3 = add(rat1, rat2)
+    print(rat3)
+    rat4 = sub(rat1, rat2)
+    print(rat4)
+    print(to_str(rat4))
 
 
 if __name__ == '__main__':
